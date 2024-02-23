@@ -1,0 +1,10 @@
+import "dotenv/config";
+export const SESSION_SECRET_KEY = process.env.SESSION_SECRET_KEY;
+export const PORT = process.env.PORT;
+export const REDIS_URL = process.env.REDIS_URL;
+export const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+export const GPT_MAX_TOKEN = 150;
+export const S3_ACCESS_KEY = process.env.S3_ACCESS_KEY;
+export const S3_SECRET_ACESS_KEY = process.env.S3_SECRET_ACESS_KEY;
+export const BUCKET_NAME = process.env.BUCKET_NAME;
+export const EXPIRES_IN = 60 * 60 * 24;
