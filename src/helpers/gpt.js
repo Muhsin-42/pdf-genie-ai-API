@@ -1,7 +1,6 @@
 import OpenAI from "openai";
 import { GPT_MAX_TOKEN, OPENAI_API_KEY } from "../utils/constants.js";
 import { getParsedRedisData, redis } from "./redis.js";
-
 const openai = new OpenAI({
   apiKey: OPENAI_API_KEY,
 });
@@ -12,7 +11,7 @@ export const getGptResponse = async (sessionId, pdfContent, userQuestion) => {
     const messages = [
       {
         role: "system",
-        content: `You are a PDF analyzer. Analyze the PDF and provide answers related to its content only if a user asks unrelated questions give a sarcastic reply. Pretend to be the subject of the PDF when answering questions. For example, if the PDF is a resume for a person named Sam, and the user asks for your name, respond with "My name is Sam". The content of the PDF is as follows: ${pdfContent}. You have a token limit of ${GPT_MAX_TOKEN}, so please ensure your responses fit within this constraint.`,
+        content: `You are a PDF analyzer. Analyze the PDF and provide answers related to its content only. Pretend to be the subject of the PDF when answering questions. For example, if the PDF is a resume for a person named Sam, and the user asks for your name, respond with "My name is Sam". The content of the PDF is as follows: ${pdfContent}.`,
       },
     ];
 
