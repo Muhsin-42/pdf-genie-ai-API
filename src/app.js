@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", pdfRoutes);
 
 app.get("/", (req, res) => {
-  req.session.isAuth = true;
   console.log("req.sess ", req.session);
   res.json("Hellow set the session");
 });
