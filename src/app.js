@@ -1,10 +1,8 @@
-// const session = require('express-session');
-import session from "express-session";
 import express from "express";
 import pdfRoutes from "./routes/pdf.route.js";
 import helmet from "helmet";
 import cors from "cors";
-import { PORT, SESSION_SECRET_KEY } from "./utils/constants.js";
+import { PORT } from "./utils/constants.js";
 const app = express();
 app.use(cors());
 app.use(helmet());
