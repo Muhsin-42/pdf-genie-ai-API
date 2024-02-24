@@ -58,7 +58,7 @@ export const uploadPdf = asyncHandler(async (req, res) => {
 
 export const getPdfUrl = asyncHandler(async (req, res) => {
   try {
-    const sessionId = req.params?.clientSessinId;
+    const sessionId = req.params.clientSessinId;
     const filename = `${sessionId}.pdf`;
     const pdfUrl = await getObjectURL(`pdfs/${filename}`);
     return res.status(200).json(new ApiResponse(200, { pdfUrl }));

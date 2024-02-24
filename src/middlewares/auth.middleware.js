@@ -7,11 +7,11 @@ export const Authenticate = asyncHandler(async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
     const { sessionId } = jwt.verify(token, SESSION_SECRET_KEY);
-    if (req.params?.clientSessinId !== sessionId)
+    if (req.params.clientSessinId !== sessionId)
       throw new ApiError(401, "Unauthorized Access");
 
     next();
   } catch (error) {
-    throw new ApiError(401, error?.message || "Unauthorized Access");
+    throw new ApiError(401, error.message || "Unauthorized Access");
   }
 });
