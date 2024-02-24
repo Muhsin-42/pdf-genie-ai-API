@@ -3,7 +3,10 @@ import { REDIS_URL } from "../utils/constants.js";
 
 const getRedisUrl = () => {
   if (REDIS_URL) return REDIS_URL;
-  throw new Error("REDIS_URL IS NOT DEFINED");
+  else {
+    console.log("REDIS", REDIS_URL);
+    throw new Error("REDIS_URL IS NOT DEFINED");
+  }
 };
 
 export const redis = new Redis(getRedisUrl());
