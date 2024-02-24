@@ -47,15 +47,12 @@ export const uploadPdf = asyncHandler(async (req, res) => {
             .status(200)
             .json(new ApiResponse(200, { token, sessionId, pdfUrl }));
         } catch (error) {
-          throw new ApiError(
-            500,
-            error?.message || "Error uploading PDF to S3"
-          );
+          throw new ApiError(500, error.message || "Error uploading PDF to S3");
         }
       }
     });
   } catch (error) {
-    throw new ApiError(500, error?.message || "Something Went Wrong");
+    throw new ApiError(500, error.message || "Something Went Wrong");
   }
 });
 
@@ -66,6 +63,6 @@ export const getPdfUrl = asyncHandler(async (req, res) => {
     const pdfUrl = await getObjectURL(`pdfs/${filename}`);
     return res.status(200).json(new ApiResponse(200, { pdfUrl }));
   } catch (error) {
-    throw new ApiError(500, error?.message || "Something Went Wrong");
+    throw new ApiError(500, error.message || "Something Went Wrong");
   }
 });
