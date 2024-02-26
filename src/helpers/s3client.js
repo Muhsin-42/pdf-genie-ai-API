@@ -16,9 +16,13 @@ const s3Client = new S3Client({
   credentials: { accessKeyId, secretAccessKey },
 });
 
-export async function getObjectURL(Key) {
-  const command = new GetObjectCommand({ Bucket, Key });
-  const url = await getSignedUrl(s3Client, command, { expiresIn });
+// export async function getObjectURL(Key) {
+//   const command = new GetObjectCommand({ Bucket, Key });
+//   const url = await getSignedUrl(s3Client, command, { expiresIn });
+//   return url;
+// }
+export function getObjectURL(Key) {
+  const url = `https://${Bucket}.s3.amazonaws.com/${Key}`;
   return url;
 }
 
